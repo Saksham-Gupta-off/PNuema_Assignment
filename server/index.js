@@ -20,7 +20,7 @@ function userData (arr) {
     return arr;
 }
 
-app.post("/userpage1", async(req, res) => {
+app.post("/userpage", async(req, res) => {
     try{
         const userinfo = req.body;
         const newUser = await pool.query(
@@ -33,7 +33,7 @@ app.post("/userpage1", async(req, res) => {
 })
 
 // get all user info
-app.get("/userpage2", async(req, res) => {
+app.get("/userpage", async(req, res) => {
     try {
         const allUsers = await pool.query("SELECT * FROM users");
         res.json(allUsers.rows);
@@ -43,7 +43,7 @@ app.get("/userpage2", async(req, res) => {
 })
 
 // get one user data
-app.get("/userpage2/:id", async(req,res) => {
+app.get("/userpage/:id", async(req,res) => {
     try {
         const { id } = req.params;
         const user = await pool.query("SELECT * FROM users WHERE user_id = $1", [id]);
@@ -54,7 +54,7 @@ app.get("/userpage2/:id", async(req,res) => {
 })
 
 // delete user data
-app.delete("/userpage2/:id", async(req, res) => {
+app.delete("/userpage/:id", async(req, res) => {
     try {
         const { id } = req.params;
         const deleteUser = await pool.query("DELETE FROM users WHERE user_id = $1", [id]);
