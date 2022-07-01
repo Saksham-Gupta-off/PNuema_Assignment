@@ -4,7 +4,7 @@ const ListUsers = () => {
 
     const deleteUser = async (id) => {
         try {
-            const deleteUser = await fetch(`http://localhost:5000/userpage/${id}`, {
+            const deleteUser = await fetch(`/userpage/${id}`, {
             method: "DELETE"
         });
 
@@ -18,7 +18,7 @@ const ListUsers = () => {
 
     const getUsers = async () => {
         try {
-            const response = await fetch("http://localhost:5000/userpage");
+            const response = await fetch("/userpage");
             const jsonData = await response.json();
             setUsers(jsonData);
         } catch (err) {

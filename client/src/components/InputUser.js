@@ -10,13 +10,13 @@ const InputUser = () => {
         e.preventDefault();
         try {
             const body = {name, age, email, mobile};
-            const response = await fetch("http://localhost:5000/userpage", {
+            const response = await fetch("/userpage", {
                 method:"POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
             })
 
-            window.location = "/";
+           // window.location = "/";
         } catch (err) {
             console.error(err.message);
         }
